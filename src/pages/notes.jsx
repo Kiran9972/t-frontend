@@ -38,7 +38,7 @@ export default function Notes() {
   // 🟢 Add Note
   const handleAddNote = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/notes", {
+      const res = await fetch("${API_URL}/api/auth/notes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export default function Notes() {
   // 🟠 Update Note
   const handleUpdateNote = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/notes/${editNoteId}`, {
+      const res = await fetch(`${API_URL}/api/auth/notes/${editNoteId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +94,7 @@ export default function Notes() {
   // 🔴 Delete Note
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/notes/${id}`, {
+      const res = await fetch(`${API_URL}/api/auth/notes/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
