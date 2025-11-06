@@ -14,7 +14,7 @@ export default function Notes() {
   // 🟢 Fetch Notes
   const fetchNotes = async () => {
     try {
-      const res = await fetch("${API_URL}/api/auth/notes", {
+      const res = await fetch("${API_URL}/api/notes", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -38,7 +38,7 @@ export default function Notes() {
   // 🟢 Add Note
   const handleAddNote = async () => {
     try {
-      const res = await fetch("${API_URL}/api/auth/notes", {
+      const res = await fetch("${API_URL}/api/notes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export default function Notes() {
   // 🟠 Update Note
   const handleUpdateNote = async () => {
     try {
-      const res = await fetch(`${API_URL}/api/auth/notes/${editNoteId}`, {
+      const res = await fetch(`${API_URL}/api/notes/${editNoteId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +94,7 @@ export default function Notes() {
   // 🔴 Delete Note
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`${API_URL}/api/auth/notes/${id}`, {
+      const res = await fetch(`${API_URL}/api/notes/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
