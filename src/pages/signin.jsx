@@ -9,11 +9,11 @@ function Signin() {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
-
+  const API_URL = import.meta.env.VITE_API_URL
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signin', form)
+      const res = await axios.post('${API_URL}/api/auth/signin', form)
       localStorage.setItem('token', res.data.token)
       navigate('/notes')
     } catch (err) {

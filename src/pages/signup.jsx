@@ -6,6 +6,9 @@ function Signup() {
   const [form, setForm] = useState({ name: '', email: '', password: '' })
   const navigate = useNavigate()
 
+  // ✅ Use environment variable for backend URL
+  const API_URL = import.meta.env.VITE_API_URL
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
@@ -13,7 +16,8 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', form)
+      // ✅ Use API_URL here instead of localhost
+      await axios.post(`${API_URL}/api/auth/signup`, form)
       alert('Signup successful! Please login.')
       navigate('/signin')
     } catch (err) {

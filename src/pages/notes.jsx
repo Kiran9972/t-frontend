@@ -9,11 +9,12 @@ export default function Notes() {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const API_URL = import.meta.env.VITE_API_URL;
 
   // 🟢 Fetch Notes
   const fetchNotes = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/notes", {
+      const res = await fetch("${API_URL}/api/auth/notes", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
